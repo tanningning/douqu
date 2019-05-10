@@ -1,9 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import PrivateRoute from './components/PrivateRoute'
+import { Route, Switch } from 'react-router-dom'
+import Login from './routes/Login/index'
+import Index from './routes/Index/index'
 import './App.css';
 
-function App() {
-	return ( < div > 逗趣 < /div>);
-	}
+class App extends Component {
+  render() {
+    return (
+      <Switch>
+        <Route path='/login' component={Login}/>
+        <PrivateRoute path='/' component={Index}/>
+      </Switch>);
+  }
+}
 
-	export default App;
+
+export default App;
